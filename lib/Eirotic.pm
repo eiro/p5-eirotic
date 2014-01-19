@@ -5,6 +5,7 @@ use strict   ();
 use warnings ();
 require Method::Signatures;
 require Perlude;
+require File::Slurp;
 use YAML;
 use Import::Into;
 our $VERSION = '0.0';
@@ -24,6 +25,7 @@ to have
     use 5.14.0; # because given is fixed there
     use Perlude;
     use Method::Signatures;
+    use File::Slurp qw< :all >;
 
 =head1 MORE to come
 
@@ -36,6 +38,7 @@ sub import {
     warnings->import(FATAL => 'all');
     feature->import( ':5.14' );
     my $caller = caller;
+    File::Slurp->import::into($caller, ':all');
     Perlude->import::into($caller);
     Method::Signatures->import( {into => $caller} );
 }
