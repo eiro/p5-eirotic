@@ -1,56 +1,56 @@
+package Eirotic;
 # ABSTRACT: use perl *my* way
+our $VERSION = '0.1';
 
 =head1 SYNOPSIS
 
-just 
+writting
 
     use Eirotic;
 
-to have
+replaces this boilerplate
 
+    use 5.20.0;
     use strict;
-    use warnings qw< FATAL all >;
-    use 5.14.0; # because given is fixed there
+    use warnings qw( FATAL all );
+    use experimental 'signatures'; 
     use Perlude;
-    use Method::Signatures;
-    use File::Slurp qw< :all >;
+    use Path::Tiny;
+    require YAML;
 
-=head1 MORE to come
+=head1 CHANGES
 
-is utf8::all a good idea ? use C<use> instead of my own import?
+=head1 v0.1 (2015)
 
-=head1 please help to make my mind up
+=over 4
 
-=head2 About signatures
+=item * 
 
-I have to read again those docs but if someone can explain the motivation
-behind Kavorka?  (i never tested it as i'm perfectly happy about
-Method::Signatures). 
+C<Eirotic> moved to C<Eirotic::514>.
 
-        https://metacpan.org/pod/Method::Signatures
-        https://metacpan.org/pod/Method::Signatures#THANKS
-        https://metacpan.org/pod/Function::Parameters
-        https://metacpan.org/pod/MooseX::Method::Signatures
-        https://metacpan.org/pod/signatures
-        https://metacpan.org/pod/Attribute::Signature
-        https://metacpan.org/pod/Kavorka
+=item *  
 
-=head2 About IO::All
+C<IO::All> replaced by C<Path::Tiny>.
 
-Should i import IO::All and how to import operator overloading? my guess is i
-just have to import C<&io>  but i never tested it. 
+=item * 
 
-=head2 About List::AllUtils
+L<https://metacpan.org/pod/Method::Signatures> replaced by CORE experimental ones.  
+
+=back
+
+=head1 Yet experimenting
+
+=head2 Unicode everywhere
+
+is utf8::all a good idea ? use C<use> instead of my own import? 
+
+=head2 List::AllUtils ? 
 
 temptation is strong but i don't want to conflict with perlude, even in the
 user's brain.
 
 what about the idea from C<Book> (used in Perlude): use a very short NS. like
 C<A> for C<Array> and C<S> for stream? 
-
-=head2 About Mouse and Moo
-
-Why so serioo? Mouse seems to be faster even in PP. is this about memory consumption ?
 
 =head2 About autodie and fatal warnings
 
@@ -63,34 +63,37 @@ U<http://blogs.perl.org/users/peter_rabbitson/2014/01/fatal-warnings-are-a-ticki
 
 =cut
 
-package Eirotic;
-use base 'Exporter';
-use feature  ':5.14';
-use strict   ();
+use strict ();
 use warnings ();
-# require List::AllUtils;
-require Method::Signatures;
+use feature ();
+use autodie ();
 require Perlude;
-require File::Slurp;
-use YAML;
-# use IO::All;
-use Import::Into;
-our $VERSION = '0.0';
+require YAML;
+require Path::Tiny;
+require Import::Into;
 
 sub import {
-    my $caller = caller;
 
-    strict->import;
-    # warnings->import(FATAL => 'all');
-    warnings->import;
-    feature->import( ':5.14' );
+    my ( $what ) = pop;
+    my ( $caller ) = caller; 
 
-    Method::Signatures -> import( {into => $caller} );
-    File::Slurp        -> import::into($caller, ':all');
-    Perlude            -> import::into($caller);
-    # List::AllUtils     -> import::into($caller, qw< first any all >);
+    feature->import(':5.20');          # use 5.20.0;
+    strict->import;                    # use strict;
+    warnings->import;  # use warnings qw( FATAL all );
+    # warnings->import(qw( FATAL all )); # use warnings qw( FATAL all );
 
-    # IO::All->import::intro($caller);
+    #use experimental 'signatures';
+
+    feature->import('signatures');
+    warnings->unimport("experimental::signatures"); 
+
+    use Perlude;
+    use Path::Tiny;
+    
+    #return unless $what eq "-full";
+    Perlude->import::into($caller);
+    Path::Tiny->import::into($caller); 
+
 }
 
 1;
