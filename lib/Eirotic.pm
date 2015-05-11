@@ -15,6 +15,7 @@ replaces this boilerplate
     use warnings qw( FATAL all );
     use experimental 'signatures'; 
     use Perlude;
+    use curry;
     use Path::Tiny;
     require YAML;
 
@@ -69,6 +70,7 @@ use feature ();
 use autodie ();
 require Perlude;
 require YAML;
+use curry;
 require Path::Tiny;
 require Import::Into;
 
