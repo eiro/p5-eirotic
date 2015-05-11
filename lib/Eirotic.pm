@@ -1,6 +1,6 @@
 package Eirotic;
 # ABSTRACT: use perl *my* way
-our $VERSION = '0.1';
+our $VERSION = '0.2';
 
 =head1 SYNOPSIS
 
