@@ -63,7 +63,7 @@ U<http://blogs.perl.org/users/peter_rabbitson/2014/01/fatal-warnings-are-a-ticki
 
 =cut
 
-package Eirotic;
+package Eirotic::514;
 use base 'Exporter';
 use feature  ':5.14';
 use strict   ();

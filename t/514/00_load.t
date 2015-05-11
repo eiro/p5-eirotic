@@ -1,5 +1,5 @@
 #! /usr/bin/perl
-use Eirotic;
+use Eirotic::514;
 use Test::More;
 
 ok 1, "Eirotic loaded";
