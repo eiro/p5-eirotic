@@ -1,10 +1,13 @@
-Revision history for Eirotic
+Revision history for Eirotic 
 
-0.3    2015-05-11    Marc Chantreux
+0.3    WIP
 
-    * All perl 5.14 stuff (with Method::Signatures) moved in Eirotic::514
-    * Now using 5.20, curry, Path::Tiny ... see the doc
+       * Kwalitee of the module improved
+
+
+0.2    2015-05-11    Marc Chantreux
+
+       * All perl 5.14 stuff (with Method::Signatures) moved in Eirotic::514
+       * Now using 5.20, curry, Path::Tiny ... see the doc
 
 0.1    Never released
-0.2    Never released
-
