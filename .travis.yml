@@ -1,11 +1,11 @@
+# http://blogs.perl.org/users/alex_balhatchet/2013/04/travis-ci-perl.html
+# http://perlmaven.com/skip-tests-if-prerequisite-not-installed 
 language: perl
 perl: [ "5.20" ]
-# violent copy/paste from
-# http://blogs.perl.org/users/alex_balhatchet/2013/04/travis-ci-perl.html
-install:
-   # Deal with all of the DZIL dependancies, quickly and quietly
+pre_install:
    - cpanm --quiet --notest --skip-satisfied Dist::Zilla
-   - cpanm --quiet --notest --skip-satisfied autodie
+   - cpanm --quiet --notest --skip-satisfied Pod::Coverage::TrustPod
+install:
    - dzil authordeps | grep -vP '[^\w:]' | xargs -n 5 -P 10 cpanm --quiet --notest --skip-satisfied
    - export RELEASE_TESTING=1 AUTOMATED_TESTING=1 AUTHOR_TESTING=1 HARNESS_OPTIONS=j10:c HARNESS_TIMER=1
    - dzil listdeps | grep -vP '[^\w:]' | cpanm --verbose
