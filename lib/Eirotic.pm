@@ -9,10 +9,10 @@ Eirotic - a module to load and use Perl my may
 
 =head1 VERSION
 
-0.2
+0.3
 
 =cut
-our $VERSION = '0.2';
+our $VERSION = '0.3';
 
 =head1 SYNOPSIS
 
