@@ -1,10 +1,15 @@
 package Eirotic;
-# ABSTRACT: use perl *my* way
-our $VERSION = '0.2';
-
+=encoding utf8
 =head1 NAME
 
-Eirotic 
+Eirotic - a module to load and use Perl my may
+
+=head1 VERSION
+
+0.2
+
+=cut
+our $VERSION = '0.2';
 
 =head1 SYNOPSIS
 
@@ -43,7 +48,7 @@ L<https://metacpan.org/pod/Method::Signatures> replaced by CORE experimental one
 
 =back
 
-=head1 Yet experimenting
+=head1 YET EXPERIMENTING
 
 =head2 Unicode everywhere
 
@@ -54,17 +59,64 @@ is utf8::all a good idea ? use C<use> instead of my own import?
 temptation is strong but i don't want to conflict with perlude, even in the
 user's brain.
 
-what about the idea from C<Book> (used in Perlude): use a very short NS. like
+what about the idea from L<https://metacpan.org/author/BOOK> (used in Perlude): use a very short NS. like
 C<A> for C<Array> and C<S> for stream? 
 
 =head2 About autodie and fatal warnings
 
-seems to be nice but maybe i should read
-U<http://blogs.perl.org/users/peter_rabbitson/2014/01/fatal-warnings-are-a-ticking-time-bomb-via-chromatic.html>
+seems to be nice but maybe i should read L<http://blogs.perl.org/users/peter_rabbitson/2014/01/fatal-warnings-are-a-ticking-time-bomb-via-chromatic.html>
 
-=head1 CREDITS
+=head1 AUTHOR
 
-    Author: Marc Chantreux <marcc@cpan.org>
+Marc Chantreux <marcc@cpan.org>  
+
+=head1 BUGS
+ 
+Please report any bugs or feature requests to C<bug-eirotic at rt.cpan.org>, or through
+the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Eirotic>.  I will be
+notified, and then you'll automatically be notified of progress on your bug as
+I make changes.
+ 
+=head1 SUPPORT
+ 
+You can find documentation for this module with the perldoc command.
+ 
+    perldoc Eirotic
+ 
+You can also look for information at:
+ 
+=over 4
+ 
+=item * RT: CPAN's request tracker
+ 
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Eirotic>
+ 
+=item * AnnoCPAN: Annotated CPAN documentation
+ 
+L<http://annocpan.org/dist/Eirotic>
+ 
+=item * CPAN Ratings
+ 
+L<http://cpanratings.perl.org/d/Eirotic>
+ 
+=item * CPAN
+ 
+L<https://metacpan.org/release/eirotic>
+ 
+=back
+ 
+=head1 COPYRIGHT
+ 
+Copyright 2013-2015 Marc Chantreux (eiro). 
+
+=head1 LICENSE
+ 
+This program is free software; you can redistribute it and/or modify it
+under the terms of either: the GNU General Public License as published
+by the Free Software Foundation; or the Artistic License.
+ 
+See L<http://dev.perl.org/licenses/> for more information.
 
 =cut
 
