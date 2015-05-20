@@ -1,4 +1,7 @@
-package Eirotic;
+package Eirotic; 
+
+#ABSTRACT: Eirotic - a module to load and use Perl my may 
+
 =encoding utf8
 =head1 NAME
 
