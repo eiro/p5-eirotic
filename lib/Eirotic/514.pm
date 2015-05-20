@@ -55,7 +55,7 @@ Why so serioo? Mouse seems to be faster even in PP. is this about memory consump
 =head2 About autodie and fatal warnings
 
 seems to be nice but maybe i should read
-U<http://blogs.perl.org/users/peter_rabbitson/2014/01/fatal-warnings-are-a-ticking-time-bomb-via-chromatic.html>
+L<http://blogs.perl.org/users/peter_rabbitson/2014/01/fatal-warnings-are-a-ticking-time-bomb-via-chromatic.html>
 
 =head1 CREDITS
 
